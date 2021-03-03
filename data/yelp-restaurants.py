@@ -6,8 +6,8 @@ API_KEY = YELP_API_KEY
 ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
 HEADERS = {'Authorization': 'bearer %s' % API_KEY}
 
-cuisines = ['japanese', 'italian', 'chinese', 'american', 'indian', 'korean', 'vietnamese', 'thai', 'vegan']
-ranges = {'japanese': 20, 'italian': 20, 'chinese': 20, 'american':20, 'indian': 10, 'korean':10, 'vietnamese':10, 'thai':10, 'vegan':20}
+cuisines = ['japanese', 'italian', 'chinese', 'american', 'indian', 'korean', 'vegan']
+ranges = {'japanese': 20, 'italian': 20, 'chinese': 20, 'american':20, 'indian': 10, 'korean':20, 'vegan':20}
 restaurants_all = []
 
 offset_val = 0
@@ -53,7 +53,7 @@ for r in restaurants_all:
         unique_restaurants.append(r)
 
 # make sure there are over 5000 unique restaurants
-# print("Number of unique restaurants:", len(unique_restaurants))
+print("Number of unique restaurants:", len(unique_restaurants))
 
 # save restaurant data to a file
 json.dump(unique_restaurants, open("data/restaurantdata.txt", "w"))
