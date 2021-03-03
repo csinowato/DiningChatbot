@@ -82,7 +82,7 @@ def isvalid_location(location):
     return location.lower() in valid_locations
 
 def isvalid_cuisine(cuisine):
-    valid_cusines = ['japanese', 'italian', 'chinese', 'american', 'indian', 'korean', 'vietnamese', 'thai', 'vegan']
+    valid_cusines = ['japanese', 'italian', 'chinese', 'american', 'indian', 'korean', 'vegan']
     return cuisine.lower() in valid_cusines
 
 def isvalid_date(date):
@@ -154,7 +154,7 @@ def validate_book_restaurant(slots):
         return build_validation_result(
             False,
             'cuisine',
-            'I did not recognize that cuisine. What cuisine would you like to try? Please choose from the following: Japanese, Italian, Chinese, American, Indian, Korean, Vietnamese, Thai, Vegan.'
+            'I did not recognize that cuisine. What cuisine would you like to try? Please choose from the following: Japanese, Italian, Chinese, American, Indian, Korean, Vegan.'
         )
 
     return {'isValid': True}
