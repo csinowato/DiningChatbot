@@ -69,3 +69,11 @@ with open('data/restaurantelastic.json', 'w') as outfile:
     for i in restaurants_json:
         out = json.dumps(i, separators=(',',':'))
         outfile.write(out + '\n')
+
+'''
+Data was uploaded to ElasticSearch domain using the following command:
+
+curl -XPOST -u 'username:password' https://search-restaurant-data-lsfrwxfaj7jekygcgpm46thgru.us-east-1.es.amazonaws.com/_bulk --data-binary @restaurantelastic.json -H 'Content-Type: application/json'
+
+https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-gsg-upload-data.html
+'''
