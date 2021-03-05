@@ -56,17 +56,11 @@ $(document).ready(function() {
           console.log('received ' + data.messages.length + ' messages');
 
           var messages = data.messages;
-          // TEST
-          console.log('messages -->', messages)
 
           for (var message of messages) {
-            console.log("message is -->", message)
             if (message.type === 'unstructured') {
-              console.log("UNSTRUCTURED MESSAGE")
-              console.log("TEXT --> ", message.unstructured.text)
               insertResponseMessage(message.unstructured.text);
             } else if (message.type === 'structured' && message.structured.type === 'product') {
-              console.log("STRUCTURED MESSAGE")
               var html = '';
 
               insertResponseMessage(message.structured.text);
