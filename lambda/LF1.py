@@ -144,10 +144,10 @@ def validate_book_restaurant(slots):
     if phone_number and not isvalid_phone_number(phone_number):
         return build_validation_result(False, 'phoneNumber','Please enter a valid 10 digit phone number.')
 
-    if number_of_people:
+    if number_of_people or number_of_people == 0:
         if number_of_people <= 0:
             return build_validation_result(False, 'numberOfPeople', 'The number of people in your party must be positive. How many people are in your party?')
-        if number_of_people > 20:
+        if number_of_people >= 20:
             return build_validation_result(False, 'numberOfPeople', 'The number of people in your party must be less than 20. How many people are in your party?')
 
     if cuisine and not isvalid_cuisine(cuisine):
@@ -230,6 +230,7 @@ def book_restaurant(intent_request):
             'DataType': 'String'
         }
     })
+    # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/sqs.html
 
 
     return close(

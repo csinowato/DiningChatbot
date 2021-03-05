@@ -15,10 +15,10 @@ def lambda_handler(event, context):
         inputText=text #send user input to lex chatbot
     )
 
-    # get the response from lex
+    # Get the response from lex
     lexResponse = response['message']
 
-    # send lex response to the user
+    # Send lex response to the user
     response = {
         "messages": [
             {
@@ -35,6 +35,5 @@ def lambda_handler(event, context):
     return {
         'headers': {"Access-Control-Allow-Origin": "*"},
         'statusCode': 200,
-        # 'body': json.dumps("I'm still under development. Please come back later"),
         'messages': response['messages']
     }
